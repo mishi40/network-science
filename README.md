@@ -35,7 +35,7 @@ e0 = g.add_edge(v0, v1)
 g.remove_vertex(v0)
 g.remove_edge(e0)
 
-# ノード, リンクの走査
+# ノード, リンクの走査(ノードのインデックスは0から始まる点に注意)
 for v in g.vertices():
     print(f"vertex: {int(v)}")
 
@@ -45,10 +45,13 @@ for e in g.edges():
 # ネットワークを描画(graph-toolの強みの1つ)
 gt.graph_draw(g)
 ```
+さらに詳しく知りたい人向け：
+* [公式ドキュメント](https://graph-tool.skewed.de/static/docs/stable/)
+* [Pythonと複雑ネットワーク分析](https://www.kindaikagaku.co.jp/book_list/detail/9784764906020/) 1章
 
 ## リポジトリ内のファイルについて
 ### gt_convert.py
-example.txt のようなテキスト形式のネットワークデータを Graph オブジェクトに変換し、ファイルに保存するプログラム<br>
+テキスト形式のネットワークデータを Graph オブジェクトに変換し、ファイルに保存するプログラム<br>
 出力される .gt 形式のファイルはバイナリファイル。
 ```
 $ python3 gt_convert.py example(拡張子不要)
@@ -66,5 +69,13 @@ $ python3 gt_convert.py example(拡張子不要)
 テキスト形式のネットワークデータのよくあるフォーマット。<br>
 `a b` と書かれていたら、a というノードと b というノードの間にリンクが存在する。<br>
 今回は無向ネットワークを想定。<br>
+`gt.graph_draw(g, vertex_text = g.vertex_index)` で描画すると次のような図が得られる。<br>
 ![example.png](example.png)
 ### network_check.py
+与えたネットワークデータ(.gt 形式)が分析に適した形であるかを確かめるプログラム。<br>
+最大連結成分の抽出、多重リンクと自己ループの除去を行う。
+```
+$ python3 network_check.py example(拡張子不要)
+```
+example.txt のネットワークの場合、次のようなネットワークが出力される。<br>
+![example-processed.png](example-processed.png)
