@@ -1,13 +1,14 @@
 # graph-tool を使ったネットワーク分析プログラム
 
 ## graph-tool とは？
-ネットワーク科学の研究者 Dr. Peixoto が開発した Python のモジュール。<br>
+[ネットワーク科学](https://www.jst.go.jp/crds/pdf/CRDS-FR-S/CRDS-FR-S507-202601.pdf)の研究者 Dr. Peixoto が開発した Python のモジュール。<br>
 内部は C++ で実装されているため、よく知られたネットワーク分析ツールである NetworkX よりも高速に動作する。<br>
 公式HP: https://graph-tool.skewed.de/
 
 ## 導入方法
 pip コマンドでインストールはできない。<br>
-Ubuntu や Arch などのよく使われる Linux ディストリビューションではパッケージマネージャを用いたインストールが可能。<br>
+Ubuntu や Arch などのよく使われる Linux ディストリビューションでは、<br>
+パッケージマネージャを用いたインストールが可能。<br>
 例）Debian 系
 ```
 # apt -y install python3-graph-tool
@@ -67,6 +68,7 @@ $ python3 gt_convert.py example(拡張子不要)
 4 5
 ```
 テキスト形式のネットワークデータのよくあるフォーマット。<br>
+ただし、ノード番号は 1 から始まっていることが多い。<br>
 `a b` と書かれていたら、a というノードと b というノードの間にリンクが存在する。<br>
 今回は無向ネットワークを想定。<br>
 `gt.graph_draw(g, vertex_text = g.vertex_index)` で描画すると次のような図が得られる。<br>
