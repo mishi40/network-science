@@ -72,7 +72,7 @@ $ python3 gt_convert.py example(拡張子不要)
 `a b` と書かれていたら、a というノードと b というノードの間にリンクが存在する。<br>
 今回は無向ネットワークを想定。<br>
 `gt.graph_draw(g, vertex_text = g.vertex_index)` で描画すると次のような図が得られる。<br>
-![example.png](example.png)
+![example.png](pics/example.png)
 ### network_check.py
 与えたネットワークデータ(.gt 形式)が分析に適した形であるかを確かめるプログラム。<br>
 最大連結成分の抽出、多重リンクと自己ループの除去を行う。
@@ -80,4 +80,4 @@ $ python3 gt_convert.py example(拡張子不要)
 $ python3 network_check.py example(拡張子不要)
 ```
 example.txt のネットワークの場合、次のようなネットワークが出力される。<br>
-![example-processed.png](example-processed.png)
+![example-processed.png](pics/example-processed.png)
