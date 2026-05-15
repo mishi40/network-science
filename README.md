@@ -77,7 +77,8 @@ $ python3 gt_convert.py example(拡張子不要)
 与えたネットワークデータ(.gt 形式)が分析に適した形であるかを確かめるプログラム。<br>
 最大連結成分の抽出、多重リンクと自己ループの除去を行う。
 ```
-$ python3 network_check.py example(拡張子不要)
+$ python3 network_check.py example.gt
 ```
-example.txt のネットワークの場合、次のようなネットワークが出力される。<br>
+example.txt のネットワークの場合、<br>
+次のようなネットワークデータ(example-processed.gt)が出力される。<br>
 ![example-processed.png](pics/example-processed.png)
